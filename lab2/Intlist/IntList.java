@@ -8,6 +8,7 @@ import java.util.Formatter;
  *         [Do not modify this file.]
  */
 public class IntList {
+    private static IntList Intlist;
     /**
      * First element of list.
      */
@@ -81,17 +82,48 @@ public class IntList {
      */
 
     public static IntList dcatenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+        IntList p = A;
+        while (p.rest != null){
+            p = p.rest;
+        }
+        p.rest = B;
+
+
+        return A;
     }
 
     /**
      * Returns a list consisting of the elements of A followed by the
      * * elements of B.  May NOT modify items of A.  Use 'new'.
      */
+
     public static IntList catenate(IntList A, IntList B) {
-        //TODO:  fill in method
-        return null;
+
+        if(A == null && B == null){
+            return null;
+        }
+        if(A == null){
+            return B;
+        }
+        if(B == null){
+            return A;
+        }
+
+        IntList C = new IntList(A.first, null);
+        IntList p = C;
+        IntList ptrA = A.rest;
+        while (ptrA != null){
+            p.rest = new IntList(ptrA.first, null);
+            p = p.rest;
+            ptrA = ptrA.rest;
+        }
+        IntList ptrB = B;
+        while (ptrB != null){
+            p.rest = new IntList(ptrB.first, null);
+            p = p.rest;
+            ptrB = ptrB.rest;
+        }
+        return C;
     }
 
 
