@@ -25,7 +25,7 @@ public class NBody{
 		}
 		return planets;
 	}
-	public static void drawAll(Planet[] planets){
+	private static void drawAll(Planet[] planets){
 		int i = 0;
     	while (i < planets.length){
     		Planet p = planets[i];
@@ -69,6 +69,7 @@ public class NBody{
     			planets[i].update(dt, xForces[i], yForces[i]);
     			i ++;
     		}
+
     		StdDraw.setScale(-radius, radius);
     		StdDraw.picture(0, 0, "./images/starfield.jpg");
     		

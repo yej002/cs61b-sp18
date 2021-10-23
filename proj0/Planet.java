@@ -14,7 +14,7 @@ public class Planet{
 	that depicts the planet (for example, jupiter.gif)*/
 	public String imgFileName;
 	/** same as 6.67*Math.pow(10,-11); */
-	public static final double G = 6.67e-11;
+	private static final double G = 6.67e-11;
 
 
 	public Planet(double xP, double yP, double xV,
@@ -37,6 +37,7 @@ public class Planet{
 		imgFileName = p.imgFileName;
 
 	}
+
 
 	public double calcDistance(Planet p){
 		double distance = 
@@ -91,10 +92,10 @@ public class Planet{
 		double newPosX = xxPos + dtime * newVelX;
 		double newPosY = yyPos + dtime * newVelY;
 		
-		xxVel = newVelX;
-		yyVel = newVelY;
-		xxPos = newPosX;
-		yyPos = newPosY;
+		this.xxVel = newVelX;
+		this.yyVel = newVelY;
+		this.xxPos = newPosX;
+		this.yyPos = newPosY;
 
 	}
 
