@@ -1,16 +1,12 @@
-/** Performs some basic linked list tests. */
-public class LinkedListDequeTest {
-	
-	/* Utility method for printing out empty checks. */
-	public static boolean checkEmpty(boolean expected, boolean actual) {
-		if (expected != actual) {
+public class ArrayDequeTest {
+	public static boolean checkEmpty(boolean expected, boolean actual){
+		if (expected != actual){
 			System.out.println("isEmpty() returned " + actual + ", but expected: " + expected);
 			return false;
 		}
 		return true;
 	}
-
-	/* Utility method for printing out empty checks. */
+	
 	public static boolean checkSize(int expected, int actual) {
 		if (expected != actual) {
 			System.out.println("size() returned " + actual + ", but expected: " + expected);
@@ -18,9 +14,7 @@ public class LinkedListDequeTest {
 		}
 		return true;
 	}
-
-	/* Prints a nice message based on whether a test passed. 
-	 * The \n means newline. */
+	
 	public static void printTestStatus(boolean passed) {
 		if (passed) {
 			System.out.println("Test passed!\n");
@@ -29,14 +23,10 @@ public class LinkedListDequeTest {
 		}
 	}
 
-	/** Adds a few things to the list, checking isEmpty() and size() are correct, 
-	  * finally printing the results. 
-	  *
-	  * && is the "and" operation. */
-	public static void addIsEmptySizeTest() {
+		public static void addIsEmptySizeTest() {
 		System.out.println("Running add/isEmpty/Size test.");
 		
-		LinkedListDeque<String> lld1 = new LinkedListDeque<String>();
+		ArrayDeque<String> lld1 = new ArrayDeque<String>();
 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
@@ -53,19 +43,14 @@ public class LinkedListDequeTest {
 		lld1.addLast("back");
 		passed = checkSize(3, lld1.size()) && passed;
 
-		System.out.println("Printing out deque: ");
-		lld1.printDeque();
-
 		printTestStatus(passed);
 		
 	}
-
-	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
-	public static void addRemoveTest() {
+		public static void addRemoveTest() {
 
 		System.out.println("Running add/remove test.");
 
-		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		// should be empty 
 		boolean passed = checkEmpty(true, lld1.isEmpty());
 
@@ -90,25 +75,25 @@ public class LinkedListDequeTest {
 		
 	}
 
-	public static void getTest(int index){
+	public static void getTest(){
 		System.out.println("Running getIndex test.");
 
-		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
+		ArrayDeque<Integer> lld1 = new ArrayDeque<Integer>();
 		lld1.addLast(15);
 		lld1.addLast(10);
 		lld1.addLast(5);
 		lld1.addLast(0);
-		int x = lld1.get(index);
+		int x = lld1.getFirst();
 		System.out.println(x);
-		int y = lld1.getRecursive(index);
+		int y = lld1.getLast();
 		System.out.println(y);
 	}
-
 
 	public static void main(String[] args) {
 		System.out.println("Running tests.\n");
 		addIsEmptySizeTest();
 		addRemoveTest();
-		getTest(3);
+		getTest();
 	}
-} 
+
+}
