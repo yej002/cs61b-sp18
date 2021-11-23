@@ -69,5 +69,23 @@ public class IntListTest {
     /** If you're running this from the command line, you'll need
       * to add a main method. See ArithmeticTest.java for an
       * example. */
+    public static void main(String... args) {
+        jh61b.junit.TestRunner.runTests("all",IntListTest.class);
+    }
 
+    /**
+     * Returns the reverse of the given IntList.
+     * This method is destructive. If given null
+     * as an input, returns null.
+     */
+    @Test
+    public void TestReverse(){
+        IntList A = IntList.of(1, 2, 3);
+        IntList B = IntList.of(3, 2, 1);
+        IntList C = null;
+        assertNotEquals(IntList.reverse(A), A);
+        assertEquals(IntList.reverse(A),B);
+        assertEquals(IntList.reverse(C), null);
+    }
 }
+

@@ -40,9 +40,10 @@ public class Planet{
 
 
 	public double calcDistance(Planet p){
-		double distance = 
-		Math.sqrt((p.xxPos - xxPos)*(p.xxPos - xxPos)+
-		(p.yyPos - yyPos)*(p.yyPos - yyPos));
+		// double distance = 
+		// Math.sqrt((p.xxPos - xxPos)*(p.xxPos - xxPos)+
+		// (p.yyPos - yyPos)*(p.yyPos - yyPos));
+		double distance = Math.hypot((p.xxPos - xxPos), (p.yyPos - yyPos));
 		return distance;
 	}
 
